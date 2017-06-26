@@ -1,13 +1,13 @@
 {
   "name": "registry-service",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
 	"bin": {
-		"registry-service": "./bin/start_service"
+		"registry_service": "./bin/start_server"
 	},
   "repository": {
     "type": "git",
