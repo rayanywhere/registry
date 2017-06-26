@@ -57,6 +57,7 @@ module.exports = class extends TcpServer {
                     assert(Number.isInteger(request.payload.port), '[REGISTER]bad port parameter');
                     assert(Number.isInteger(request.payload.timeout), '[REGISTER]bad timeout parameter');
 
+                    logger.debug(`registering ${request.payload.name} with params(${JSON.stringify(request.payload)})...`)
                     this._database.add(request.payload.name, {
                         host: request.payload.host,
                         port: request.payload.port,
@@ -65,6 +66,7 @@ module.exports = class extends TcpServer {
                     break;
                 case 'lookup':
                     assert(typeof request.payload === 'string', '[LOOKUP]bad request');
+                    logger.debug(`looking up ${request.payload}...`)
                     response.payload = this._database.query(request.payload);
                     if (response.payload === undefined) {
                         throw new Error(`no such record:${request.payload}`);
