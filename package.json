@@ -1,0 +1,28 @@
+{
+  "name": "registry",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rayanywhere/registry.git"
+  },
+  "keywords": [
+    "registry"
+  ],
+  "author": "rayanywhere",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rayanywhere/registry/issues"
+  },
+  "homepage": "https://github.com/rayanywhere/registry#readme",
+  "dependencies": {
+    "fs-extra": "^3.0.1",
+    "log4js": "^1.1.1",
+    "opts": "^1.2.6",
+    "tcp-framework": "^1.2.4"
+  }
+}

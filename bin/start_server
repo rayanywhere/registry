@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+const RegistryServer = require('../server');
+const server = new RegistryServer();
+server.start();
