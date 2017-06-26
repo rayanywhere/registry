@@ -1,11 +1,14 @@
 {
-  "name": "node-service-registry",
-  "version": "1.0.0",
+  "name": "registry-service",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
+	"bin": {
+		"registry-service": "./bin/start_service"
+	},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rayanywhere/registry.git"
