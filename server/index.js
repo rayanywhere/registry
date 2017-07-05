@@ -1,4 +1,5 @@
 const TcpServer = require('tcp-framework').Server;
+const Message = require('tcp-framework').Message;
 const log4js = require('log4js');
 const Database = require('./database');
 const assert = require('assert');
@@ -43,8 +44,9 @@ module.exports = class extends TcpServer {
 		logger.info(`error occurred at client(${socket.remoteAddress}:${socket.remotePort}): ${err.stack}`);
 	}
 
-    async process(socket, incomingMessage) {
-		const request = JSON.parse(incomingMessage.toString('utf8'));
+    onMessage(socket, incomingMessage) {
+        console.log('ffff');
+		const request = JSON.parse(incomingMessage.payload.toString('utf8'));
 		const response = {
 			status: 0,
 			payload: undefined
@@ -81,6 +83,6 @@ module.exports = class extends TcpServer {
             response.status = -1;
             response.payload = undefined;
         }
-		return Buffer.from(JSON.stringify(response), 'utf8');
+        this.send(socket, new Message(Message.SIGN_DATA, Buffer.from(JSON.stringify(response), 'utf8'), incomingMessage.uuid));
 	}
 }

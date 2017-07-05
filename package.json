@@ -6,9 +6,9 @@
   "scripts": {
     "test": "mocha"
   },
-	"bin": {
-		"registry_service": "./bin/start_server"
-	},
+  "bin": {
+    "registry_service": "./bin/start_server"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rayanywhere/registry.git"
@@ -26,6 +26,6 @@
     "fs-extra": "^3.0.1",
     "log4js": "^1.1.1",
     "opts": "^1.2.6",
-    "tcp-framework": "^1.2.4"
+    "tcp-framework": "^1.2.8"
   }
 }

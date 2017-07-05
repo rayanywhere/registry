@@ -3,7 +3,7 @@ const assert = require('assert');
 
 describe('#register-service', function() {
     before(function() {
-        global.client = new Client({host:'localhost', port:10000});
+        global.client = new Client({host:'localhost', port:2011});
     });
 
     describe("testing normal register / lookup flow", function() {
