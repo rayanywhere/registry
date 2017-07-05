@@ -45,12 +45,11 @@ module.exports = class extends TcpServer {
 	}
 
     onMessage(socket, incomingMessage) {
-        console.log('ffff');
-		const request = JSON.parse(incomingMessage.payload.toString('utf8'));
-		const response = {
-			status: 0,
-			payload: undefined
-		};
+			const request = JSON.parse(incomingMessage.payload.toString('utf8'));
+			const response = {
+				status: 0,
+				payload: undefined
+			};
         try {
             switch(request.command) {
                 case 'register':
