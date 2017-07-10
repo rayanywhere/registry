@@ -1,26 +1,30 @@
 const TcpServer = require('tcp-framework').Server;
 const Message = require('tcp-framework').Message;
 const log4js = require('log4js');
+const path = require('path');
 const Database = require('./database');
 const assert = require('assert');
 
 module.exports = class extends TcpServer {
 	constructor() {
         super(require('./options')());
+        console.log(path.resolve(this._options.log) + '/runtime/');
 		log4js.configure({
             appenders: [
                 {
-                    type: 'console'
+                    type: 'console',
+                    category: 'runtime'
                 },
                 {
                     type: 'dateFile',
-                    filename: './logs/runtime/',
+                    filename: path.resolve(this._options.log) + '/runtime/',
                     pattern: "yyyy-MM-dd.log",
-                    alwaysIncludePattern: true
+                    alwaysIncludePattern: true,
+                    category: 'runtime'
                 }
             ]
         });
-        global.logger = log4js.getLogger();
+        global.logger = log4js.getLogger('runtime');
         this._database = new Database();
 	}
 
